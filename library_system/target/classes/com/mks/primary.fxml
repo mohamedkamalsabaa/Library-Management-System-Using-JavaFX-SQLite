@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mks.PrimaryController" spacing="10" alignment="center">
+
+    <!-- Functions -->
+    <HBox spacing="10">
+        <TextField fx:id="titleField" promptText="Title" />
+        <TextField fx:id="authorField" promptText="Author" />
+        <TextField fx:id="genreField" promptText="Genre" />
+        <TextField fx:id="heightField" promptText="Height" />
+        <TextField fx:id="publisherField" promptText="Publisher" />
+    </HBox>
+
+    <!-- Buttons -->
+    <HBox spacing="10">
+        <Button text="Add" onAction="#handleAddBook" />
+        <Button text="Delete" onAction="#handleDeleteBook" />
+        <Button text="Modify" onAction="#handleModifyBook" />
+    </HBox>
+
+    <!-- List of books -->
+    <ListView fx:id="bookListView" prefHeight="300" prefWidth="500" />
+</VBox>
