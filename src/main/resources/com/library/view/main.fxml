@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+📚 Library Management System - Main User Interface
+This FXML file defines the layout for our library application.
+It has three main tabs: Books, Members, and Transactions.
+Each tab has tables to show data and buttons for user actions.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library.controller.MainController" stylesheets="@styles.css">
+   <top>
+      <VBox>
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10px;" text="Library Management System" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Books">
+            <content>
+               <VBox spacing="10.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <children>
+                           <Label text="Search Books:" />
+                           <TextField fx:id="bookSearchField" prefWidth="300.0" promptText="Search by title, author, or ISBN..." />
+                        </children>
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                     </HBox>
+                     <TableView fx:id="booksTable" VBox.vgrow="ALWAYS">
+                       <columns>
+                         <TableColumn fx:id="bookIdColumn" prefWidth="50.0" text="ID" />
+                         <TableColumn fx:id="bookTitleColumn" prefWidth="200.0" text="Title" />
+                           <TableColumn fx:id="bookAuthorColumn" prefWidth="150.0" text="Author" />
+                           <TableColumn fx:id="bookIsbnColumn" prefWidth="120.0" text="ISBN" />
+                           <TableColumn fx:id="bookCategoryColumn" prefWidth="100.0" text="Category" />
+                           <TableColumn fx:id="bookAvailableColumn" prefWidth="80.0" text="Available" />
+                       </columns>
+                     </TableView>
+                     <Separator />
+                     <VBox spacing="10.0">
+                        <children>
+                           <Label style="-fx-font-weight: bold;" text="Add New Book" />
+                           <GridPane hgap="10.0" vgap="10.0">
+                              <columnConstraints>
+                                 <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                                 <ColumnConstraints hgrow="ALWAYS" />
+                                 <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                                 <ColumnConstraints hgrow="ALWAYS" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                 <RowConstraints />
+                                 <RowConstraints />
+                                 <RowConstraints />
+                              </rowConstraints>
+                              <children>
+                                 <Label text="Title*:" />
+                                 <TextField fx:id="bookTitleField" GridPane.columnIndex="1" />
+                                 <Label text="Author*:" GridPane.columnIndex="2" />
+                                 <TextField fx:id="bookAuthorField" GridPane.columnIndex="3" />
+                                 <Label text="ISBN:" GridPane.rowIndex="1" />
+                                 <TextField fx:id="bookIsbnField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 <Label text="Category:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                 <TextField fx:id="bookCategoryField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                 <Button onAction="#addBook" text="Add Book" GridPane.rowIndex="2" />
+                              </children>
+                           </GridPane>
+                        </children>
+                     </VBox>
+                  </children>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </VBox>
+            </content>
+          </Tab>
+          <Tab text="Members">
+            <content>
+               <VBox spacing="10.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <children>
+                           <Label text="Search Members:" />
+                           <TextField fx:id="memberSearchField" prefWidth="300.0" promptText="Search by name or email..." />
+                        </children>
+                     </HBox>
+                     <TableView fx:id="membersTable" VBox.vgrow="ALWAYS">
+                       <columns>
+                         <TableColumn fx:id="memberIdColumn" prefWidth="50.0" text="ID" />
+                         <TableColumn fx:id="memberNameColumn" prefWidth="200.0" text="Name" />
+                           <TableColumn fx:id="memberEmailColumn" prefWidth="200.0" text="Email" />
+                           <TableColumn fx:id="memberPhoneColumn" prefWidth="120.0" text="Phone" />
+                           <TableColumn fx:id="memberActiveColumn" prefWidth="80.0" text="Active" />
+                       </columns>
+                     </TableView>
+                     <Separator />
+                     <VBox spacing="10.0">
+                        <children>
+                           <Label style="-fx-font-weight: bold;" text="Add New Member" />
+                           <GridPane hgap="10.0" vgap="10.0">
+                              <columnConstraints>
+                                 <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                                 <ColumnConstraints hgrow="ALWAYS" />
+                                 <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                                 <ColumnConstraints hgrow="ALWAYS" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                 <RowConstraints />
+                                 <RowConstraints />
+                                 <RowConstraints />
+                              </rowConstraints>
+                              <children>
+                                 <Label text="Name*:" />
+                                 <TextField fx:id="memberNameField" GridPane.columnIndex="1" />
+                                 <Label text="Email*:" GridPane.columnIndex="2" />
+                                 <TextField fx:id="memberEmailField" GridPane.columnIndex="3" />
+                                 <Label text="Phone:" GridPane.rowIndex="1" />
+                                 <TextField fx:id="memberPhoneField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 <Label text="Address:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                 <TextArea fx:id="memberAddressField" maxHeight="60.0" prefRowCount="2" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                 <Button onAction="#addMember" text="Add Member" GridPane.rowIndex="2" />
+                              </children>
+                           </GridPane>
+                        </children>
+                     </VBox>
+                  </children>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </VBox>
+            </content>
+          </Tab>
+            <Tab text="Transactions">
+              <content>
+                 <VBox spacing="10.0">
+                    <children>
+                       <HBox alignment="CENTER_LEFT" spacing="10.0">
+                          <children>
+                             <Label fx:id="overdueCountLabel" style="-fx-font-weight: bold;" text="Overdue Books: 0" />
+                             <Region HBox.hgrow="ALWAYS" />
+                             <Button onAction="#showOverdueBooks" text="Show Overdue" />
+                             <Button onAction="#showAllTransactions" text="Show All" />
+                          </children>
+                       </HBox>
+                       <TableView fx:id="transactionsTable" VBox.vgrow="ALWAYS">
+                         <columns>
+                           <TableColumn fx:id="transactionIdColumn" prefWidth="50.0" text="ID" />
+                           <TableColumn fx:id="transactionBookColumn" prefWidth="200.0" text="Book" />
+                             <TableColumn fx:id="transactionMemberColumn" prefWidth="150.0" text="Member" />
+                             <TableColumn fx:id="transactionBorrowDateColumn" prefWidth="100.0" text="Borrow Date" />
+                             <TableColumn fx:id="transactionDueDateColumn" prefWidth="100.0" text="Due Date" />
+                             <TableColumn fx:id="transactionReturnDateColumn" prefWidth="100.0" text="Return Date" />
+                             <TableColumn fx:id="transactionFineColumn" prefWidth="80.0" text="Fine" />
+                         </columns>
+                       </TableView>
+                       <Separator />
+                       <VBox spacing="10.0">
+                          <children>
+                             <Label style="-fx-font-weight: bold;" text="Borrow Book" />
+                             <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                   <Label text="Book:" />
+                                   <ComboBox fx:id="borrowBookComboBox" prefWidth="300.0" promptText="Select a book..." />
+                                   <Label text="Member:" />
+                                   <ComboBox fx:id="borrowMemberComboBox" prefWidth="200.0" promptText="Select a member..." />
+                                   <Button onAction="#borrowBook" text="Borrow" />
+                                </children>
+                             </HBox>
+                          </children>
+                       </VBox>
+                    </children>
+                    <padding>
+                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                 </VBox>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
