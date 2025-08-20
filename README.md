@@ -43,22 +43,6 @@ mvn javafx:run
 ### First Launch
 The app automatically creates the database and loads sample data (15 books, 10 members).
 
-## 📁 Project Structure
-
-```
-LMS/
-├── src/main/java/com/library/
-│   ├── App.java                    # Main application
-│   ├── controller/MainController.java
-│   ├── dao/                        # Data access layer
-│   ├── model/                      # Book, Member, Transaction
-│   ├── database/DatabaseManager.java
-│   └── util/SampleDataInitializer.java
-├── src/main/resources/com/library/view/
-│   ├── main.fxml                   # UI layout
-│   └── styles.css                  # Styling
-├── library.db                      # SQLite database
-└── start.bat                       # Startup script
 ```
 
 ## � Usage
@@ -80,20 +64,9 @@ LMS/
 - **Build failures**: Run `mvn clean compile` first
 - **Database errors**: Check if `library.db` is writable
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/name`)
-3. Commit changes (`git commit -m 'Add feature'`)
-4. Push and create Pull Request
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
 ---
 
-**Built with ❤️ using Java and JavaFX**
+**Built using Java and JavaFX**
 
 src/main/resources/
 └── com/library/view/
@@ -104,7 +77,7 @@ src/main/resources/
 ## Database
 
 - SQLite database (`library.db`) is created automatically
-- Sample data is loaded on first run
+- Sample data is loaded on the first run
 - Tables: books, members, transactions
 - Overdue book notifications
 - Clean and intuitive user interface
@@ -178,34 +151,6 @@ The application automatically creates the following tables:
 - `type` (TEXT - BORROW/RETURN)
 - `fine` (REAL)
 
-## Usage
-
-### Adding Books
-1. Go to the "Books" tab
-2. Fill in the book details in the form at the bottom
-3. Click "Add Book"
-
-### Adding Members
-1. Go to the "Members" tab
-2. Fill in the member details in the form at the bottom
-3. Click "Add Member"
-
-### Borrowing Books
-1. Go to the "Transactions" tab
-2. Select a book from the dropdown (only available books are shown)
-3. Select a member from the dropdown
-4. Click "Borrow"
-
-### Returning Books
-1. Go to the "Transactions" tab
-2. Right-click on an active transaction (one without a return date)
-3. Select "Return Book" from the context menu
-4. Fine will be automatically calculated if the book is overdue
-
-### Searching
-- Use the search fields in Books and Members tabs to quickly find records
-- Search works in real-time as you type
-
 ## File Structure
 
 ```
@@ -269,25 +214,3 @@ LMS/
 3. **Build Issues:**
    - Run `mvn clean` before building
    - Ensure Maven is properly installed and configured
-
-### Running without Maven
-If you prefer to run without Maven, you'll need to:
-1. Add JavaFX and SQLite JAR files to your classpath
-2. Compile all Java files
-3. Run the main class with proper module path configuration
-
-## Future Enhancements
-
-Potential improvements that could be added:
-- Book reservation system
-- Member photo support
-- Email notifications for overdue books
-- Reports and statistics
-- Barcode scanning support
-- Multiple library branches support
-- Advanced search filters
-- Data import/export functionality
-
-## License
-
-This project is open source and available under the MIT License.
